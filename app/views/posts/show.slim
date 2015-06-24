@@ -14,7 +14,9 @@
         - @post.all_comments.each do |comment|
           .comment
             .info
-              .author= comment.author
+              .author
+                | Author:
+                strong= comment.author
               .created_at= comment.created_at
             .text= comment.text
       #create-box
