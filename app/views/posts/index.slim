@@ -4,12 +4,16 @@
       .post
         .title
           = link_to (post.title || 'No Title'), post_path(post.id, category: post.category)
-        .info
-          .author= post.author
-          .created_at= post.created_at
         .text= post.text
+        .info
+          .author
+            | Author:
+            strong=post.author
+          .created_at= post.created_at
+
 
   #create-box
+    h3 Create a Post
     form method="POST" action="/posts"
       input name="authenticity_token" type="hidden" value="#{form_authenticity_token}"
       .block
@@ -28,6 +32,6 @@
         label for="text" Text
         input#text type="text" name="post[text]"
       .block
-        input type="submit" value="Post!"
+        input.button type="submit" value="Post!"
 
 
