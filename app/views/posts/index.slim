@@ -1,14 +1,33 @@
-= content_for(:sidebar) do
- h2= @category
-
 #posts
-  - @posts.each do |post|
-    .post
-      .title
-        = link_to (post.title || 'No Title'), post_path(post.id, category: post.category)
-      .info
-        .author= post.author
-        .created_at= post.created_at
-      .text= post.text
+  #list
+    - @posts.each do |post|
+      .post
+        .title
+          = link_to (post.title || 'No Title'), post_path(post.id, category: post.category)
+        .info
+          .author= post.author
+          .created_at= post.created_at
+        .text= post.text
+
+  #create-box
+    form method="POST" action="/posts"
+      input name="authenticity_token" type="hidden" value="#{form_authenticity_token}"
+      .block
+        label for="category" Category
+        select#category name="post[category]"
+          option value="Default" Default
+          option value="News" News
+          option value="Style" Style
+      .block
+        label for="title" Title
+        input#author type="text" name="post[title]"
+      .block
+        label for="author" Author
+        input#author type="text" name="post[author]"
+      .block
+        label for="text" Text
+        input#text type="text" name="post[text]"
+      .block
+        input type="submit" value="Post!"
 
 

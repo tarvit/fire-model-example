@@ -1,5 +1,5 @@
 .back
-  =link_to('Back', :back)
+  =link_to 'All Posts', posts_path
 
 #post
   .post
@@ -9,10 +9,25 @@
       .author= @post.author
       .created_at= @post.created_at
     .text= @post.text
-      .comments
+    .comments
+      .list
         - @post.all_comments.each do |comment|
           .comment
             .info
               .author= comment.author
               .created_at= comment.created_at
             .text= comment.text
+      #create-box
+        form method="POST" action="/comments"
+          input name="authenticity_token" type="hidden" value="#{form_authenticity_token}"
+          input type="hidden" name="post[category]" value="#{@post.category}"
+          input type="hidden" name="post[id]" value="#{@post.id}"
+          .block
+            label for="author" Author
+            input#author type="text" name="comment[author]"
+          .block
+            label for="text" Comment
+            input#text type="text" name="comment[text]"
+          .block
+            input type="submit" value="Add a comment"
+
