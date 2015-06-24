@@ -1,0 +1,14 @@
+= content_for(:sidebar) do
+ h2= @category
+
+#posts
+  - @posts.each do |post|
+    .post
+      .title
+        = link_to (post.title || 'No Title'), post_path(post.id, category: post.category)
+      .info
+        .author= post.author
+        .created_at= post.created_at
+      .text= post.text
+
+
