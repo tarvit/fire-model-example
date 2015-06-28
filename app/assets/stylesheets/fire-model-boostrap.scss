@@ -1,0 +1,57 @@
+@import "bootstrap";
+
+body {
+
+  #fire-model {
+
+    #create-box {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px dotted rgb(198, 198, 198);
+
+      form {
+
+        .block {
+          @extend .form-group;
+        }
+
+        input[type=text], textarea, select {
+          @extend .form-control;
+        }
+
+        input[type=submit] {
+          @extend .btn;
+          @extend .btn-primary;
+        }
+      }
+    }
+
+    .post {
+      @extend .panel;
+      @extend .panel-default;
+      .heading {
+        @extend .panel-heading;
+        color: #333;
+        background-color: #f5f5f5;
+        border-color: #ddd;
+
+        .title {
+          @extend .panel-title;
+        }
+      }
+
+      .body {
+        @extend .panel-body;
+      }
+    }
+
+    .list {
+      @extend .list-group;
+      .item {
+        @extend .list-group-item;
+      }
+    }
+
+  }
+
+}

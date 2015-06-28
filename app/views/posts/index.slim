@@ -2,14 +2,15 @@
   #list
     - @posts.each do |post|
       .post
-        .title
-          = link_to (post.title || 'No Title'), post_path(post.id, category: post.category)
-        .text= post.text
-        .info
-          .author
-            | Author:
-            strong=post.author
-          .created_at= post.created_at
+        .heading
+          .title
+            = link_to (post.title || 'No Title'), post_path(post.id, category: post.category)
+        .body
+          .text= post.text
+          .info
+            .author
+              strong=post.author
+            .created_at= post.created_at
 
 
   #create-box
@@ -32,6 +33,6 @@
         label for="text" Text
         input#text type="text" name="post[text]"
       .block
-        input.button type="submit" value="Post!"
+        input.submit type="submit" value="Post!"
 
 
