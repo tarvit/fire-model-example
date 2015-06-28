@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.take(category: @category, id: params[:id])
+    @post = Post.take(category: (@category || Post::CATEGORIES.first), id: params[:id])
   end
 
   def create
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   private
 
   def init_category
-    @category = params[:category] || Post::CATEGORIES.first
+    @category = params[:category]
   end
 
 end

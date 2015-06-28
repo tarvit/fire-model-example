@@ -71,6 +71,36 @@ body {
       }
     }
 
+
+    #links {
+      @extend .nav;
+      @extend .nav-tabs;
+
+      .hovered_link {
+        background-color: #8381cc;
+        border-bottom: 1px solid #887AA8;
+      }
+
+      border-bottom: 1px solid #887AA8;
+      margin-bottom: 16px;
+
+      .link {
+        @extend li;
+        a:hover {
+          @extend .hovered_link;
+        }
+      }
+      .link[active] {
+        background-color: #6C6AA8;
+        border-color: #6C6AA8;
+        border-radius: 6px 6px 0px 0px;
+
+        a {
+          color: white;
+        }
+      }
+    }
+
   }
 
 }
