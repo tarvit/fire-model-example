@@ -33,6 +33,14 @@ body {
             background-color: rgb(93, 90, 160);
             border-color: rgb(78, 77, 113);
           }
+          &.disabled {
+            background-color: rgb(111, 108, 190);
+            border-color: rgb(100, 98, 144);
+            &:hover {
+              background-color: rgb(122, 118, 208);
+              border-color: rgb(100, 98, 144);
+            }
+          }
         }
       }
     }

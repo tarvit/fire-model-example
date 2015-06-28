@@ -1,3 +1,5 @@
+= render partial: 'links'
+
 #posts
   #list
     - @posts.each do |post|
@@ -20,9 +22,9 @@
       .block
         label for="category" Category
         select#category name="post[category]" placeholder="Category" required=""
-          option value="Default" Default
-          option value="News" News
-          option value="Style" Style
+          - Post::CATEGORIES.each do |category|
+            option value="#{ category }" selected=(category==@category)
+              | #{ category }
       .block
         /label for="title" Title
         input#author type="text" name="post[title]" placeholder="Title" required=""
