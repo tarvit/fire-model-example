@@ -27,6 +27,12 @@ body {
         input[type=submit] {
           @extend .btn;
           @extend .btn-primary;
+          background-color: rgb(70, 68, 121);
+          border-color: rgb(59, 58, 85);
+          &:hover {
+            background-color: rgb(93, 90, 160);
+            border-color: rgb(78, 77, 113);
+          }
         }
       }
     }
@@ -36,8 +42,8 @@ body {
       @extend .panel-default;
       .heading {
         @extend .panel-heading;
-        color: #333;
-        background-color: #f5f5f5;
+        color: #FFF;
+        background-color: #6C6AA8;
         border-color: #ddd;
 
         .title {
