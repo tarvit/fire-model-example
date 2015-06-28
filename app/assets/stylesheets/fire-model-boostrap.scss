@@ -18,6 +18,11 @@ body {
         input[type=text], textarea, select {
           @extend .form-control;
         }
+        select {
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          background: #F6F6F6;
+        }
 
         input[type=submit] {
           @extend .btn;

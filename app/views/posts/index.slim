@@ -15,23 +15,23 @@
 
   #create-box
     h3 Create a Post
-    form method="POST" action="/posts"
+    form method="POST" action="/posts" data-toggle="validator" role="form"
       input name="authenticity_token" type="hidden" value="#{form_authenticity_token}"
       .block
         label for="category" Category
-        select#category name="post[category]"
+        select#category name="post[category]" placeholder="Category" required=""
           option value="Default" Default
           option value="News" News
           option value="Style" Style
       .block
-        label for="title" Title
-        input#author type="text" name="post[title]"
+        /label for="title" Title
+        input#author type="text" name="post[title]" placeholder="Title" required=""
       .block
-        label for="author" Author
-        input#author type="text" name="post[author]"
+        /label for="author" Author
+        input#author type="text" name="post[author]" placeholder="Author name" required=""
       .block
-        label for="text" Text
-        input#text type="text" name="post[text]"
+        /label for="text" Text
+        textarea#text type="text" name="post[text]" placeholder="Text" required=""
       .block
         input.submit type="submit" value="Post!"
 
