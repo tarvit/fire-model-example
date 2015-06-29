@@ -1,0 +1,6 @@
+ul#links
+  li.link active=(@category.nil?)
+    = link_to 'All Posts', posts_path
+  - Post::CATEGORIES.each do |category|
+    li.link active=(@category==category)
+      = link_to category, posts_path(category: category)

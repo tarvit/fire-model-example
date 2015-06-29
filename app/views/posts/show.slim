@@ -1,0 +1,40 @@
+= render partial: 'links'
+javascript:
+  $(CreateBoxValidator);
+
+#post
+  .post
+    .heading
+      h4.title
+        = link_to (@post.title || 'No Title'), post_path(@post.id)
+    .body
+      .info
+        .author
+          strong= @post.author
+        .created_at= @post.created_at
+      .text= @post.text
+
+.comments
+  .list
+    - @post.all_comments.each do |comment|
+      .comment.item
+        .info
+          .author
+            strong= comment.author
+          .created_at= comment.created_at
+        .text= comment.text
+    #create-box
+      h3 Add a comment
+      form method="POST" action="/comments" role="form" data-toggle="validator"
+        input name="authenticity_token" type="hidden" value="#{form_authenticity_token}"
+        input type="hidden" name="post[category]" value="#{@post.category}"
+        input type="hidden" name="post[id]" value="#{@post.id}"
+        .block
+          /label for="author" Author
+          input#author type="text" name="comment[author]" required="" placeholder="Author name"
+        .block
+          /label for="text" Comment
+          textarea#text type="text" name="comment[text]" required="" placeholder="Comment"
+        .block
+          input.submit type="submit" value="Add a comment"
+

@@ -1,0 +1,114 @@
+@import "bootstrap";
+@import "vars";
+
+body {
+
+  #fire-model {
+
+    #create-box {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 2px dotted $grey_border;
+
+      form {
+
+        .block {
+          @extend .form-group;
+        }
+
+        input[type=text], textarea, select {
+          @extend .form-control;
+        }
+        select {
+          -webkit-box-shadow: none;
+          box-shadow: none;
+          background: #F6F6F6;
+        }
+
+        input[type=submit] {
+          @extend .btn;
+          @extend .btn-primary;
+          background-color: $button_normal_bg;
+          border-color: $button_normal_border;
+          &:hover {
+            background-color: $button_hover_bg;
+            border-color: $button_hover_border;
+          }
+          &.disabled {
+            background-color: $button_disabled_bg;
+            border-color: $button_disabled_bg;
+            &:hover {
+              background-color: $button_disabled_hover_bg;
+              border-color: $button_disabled_hover_border;
+            }
+          }
+        }
+      }
+    }
+
+    .post {
+      @extend .panel;
+      @extend .panel-default;
+      .heading {
+        @extend .panel-heading;
+        color: $heading_color;
+        background-color: $heading_background;
+        border-color: $heading_border;
+
+        .title {
+          @extend .panel-title;
+          &:hover{
+            color: $link_color;
+          }
+        }
+      }
+
+      .body {
+        @extend .panel-body;
+      }
+    }
+
+    .list {
+      @extend .list-group;
+      .item {
+        @extend .list-group-item;
+      }
+    }
+
+
+    #links {
+      @extend .nav;
+      @extend .nav-tabs;
+
+      .hovered_link {
+        background-color: $nav_link_color;
+        border-bottom: 1px solid $nav_link_border;
+      }
+
+      border-bottom: 1px solid $nav_link_border;
+      margin-bottom: 16px;
+
+      .link {
+        @extend li;
+        a:hover {
+          @extend .hovered_link;
+        }
+      }
+      .link[active] {
+        background-color: $nav_link_active_color;
+        border-color: $nav_link_active_border;
+        border-radius: 6px 6px 0 0;
+
+        a {
+          color: white;
+
+          &:hover {
+            border: 1px solid $nav_link_active_color;
+          }
+        }
+      }
+    }
+
+  }
+
+}

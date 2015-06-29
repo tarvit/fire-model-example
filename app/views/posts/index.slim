@@ -1,0 +1,39 @@
+= render partial: 'links'
+javascript:
+  $(CreateBoxValidator);
+
+#posts
+  #list
+    - @posts.each do |post|
+      .post
+        .heading
+          .title
+            = link_to (post.title || 'No Title'), post_path(post.id, category: post.category)
+        .body
+          .text= post.text
+          .info
+            .author
+              strong=post.author
+            .created_at= post.created_at
+
+
+  #create-box
+    h3 Create a Post
+    form method="POST" action="/posts" data-toggle="validator" role="form"
+      input name="authenticity_token" type="hidden" value="#{form_authenticity_token}"
+      .block
+        label for="category" Category
+        select#category name="post[category]" placeholder="Category" required=""
+          - Post::CATEGORIES.each do |category|
+            option value="#{ category }" selected=(category==@category)
+              | #{ category }
+      .block
+        input#author type="text" name="post[title]" placeholder="Title" required=""
+      .block
+        input#author type="text" name="post[author]" placeholder="Author name" required=""
+      .block
+        textarea#text type="text" name="post[text]" placeholder="Text" required=""
+      .block
+        input.submit type="submit" value="Post"
+
+

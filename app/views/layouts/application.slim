@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title Demo Application of Fire-model gem
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body
+    header
+      h1.title
+        | Demo Application of&nbsp;
+        =link_to 'fire-model', 'https://github.com/tarvit/fire-model', title: 'View on Github'
+        | &nbsp;gem
+    #fire-model
+      #sidebar
+        = yield(:sidebar)
+      #content
+        = yield

@@ -1,0 +1,42 @@
+/*
+= require_tree .
+= require_self
+*/
+@import "bootstrap";
+@import "vars";
+
+
+body {
+
+  background-color: $body_background;
+  color: rgb(87, 87, 104);
+
+  header {
+    background-color: rgb(70, 68, 121);
+    margin-top: 0;
+    padding: 3px;
+    color: white;
+    margin-bottom: 30px;
+
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
+      a {
+        color: $link_color;
+        &:hover {
+          color: $link_hover_color;
+        }
+      }
+    }
+  }
+  #fire-model {
+    a {
+      color: $content_link;
+    }
+
+    #content {
+      width: 500px;
+      margin: auto;
+    }
+  }
+}
